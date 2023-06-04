@@ -10,4 +10,12 @@ class Musik extends Model
     use HasFactory;
 
     protected $table = "musik";
+
+    public function GenreMusik(){
+        return $this->belongsTo(GenreMusik::class, "id_musik"); 
+    }
+
+    public function Label(){
+        return $this->belongsTo(Label::class, "Label_id", "id");
+    }
 }
