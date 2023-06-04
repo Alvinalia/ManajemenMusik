@@ -10,4 +10,8 @@ class Penyanyi extends Model
     use HasFactory;
 
     protected $table = "penyanyi";
+
+    public function Label(){
+        return $this->belongsto(Label::class, "penyanyi_id", "id");
+    }
 }
