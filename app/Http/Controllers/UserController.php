@@ -29,14 +29,14 @@ class UserController extends Controller
 
     }
 
-    public function update(Request $request,$id) {
+    public function update(UserRequest $request,$id) {
         $User = User::findOrFail($id);
         $User->update($request->all());
         return redirect('/User');
 
     }
 
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         
         $User = User::create($request->all());
