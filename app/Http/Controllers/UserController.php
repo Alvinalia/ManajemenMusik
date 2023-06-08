@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Session;
+
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use App\Models\Penyanyi;
 
 class UserController extends Controller
 
@@ -16,22 +19,41 @@ class UserController extends Controller
     }
 
     public function create(){
-        $penyanyi = penyanyi::all();
-
-        return view('');
+        $User = User::all();
+        return view('create',['listuser' => $User]);
     } 
 
-    public function store(Request $request): RedirectResponse
+    public function edit(Request $request, $id) {
+        $User = User::findOrFail($id);
+        return view('edit',['listuser' => $User]);
+
+    }
+
+    public function update(Request $request,$id) {
+        $User = User::findOrFail($id);
+        $User->update($request->all());
+        return redirect('/User');
+
+    }
+
+    public function store(Request $request)
     {
         
-        $name = $request->input('nama');
-        return redirect('/pembeli');
-    }
-
-    public function edit($id) {
-
-    }
+        $User = User::create($request->all());
+        return redirect('/User');
     
-    public function update(Request $request, $id) {
-
+    
     }
+    public function destroy($id)
+    {
+        $User = User::find($id)->delete();
+
+        if($User){
+            Session::flash('status','success');
+            Session::flash('message','Data Berhasil Dihapus');
+        }
+        return redirect('/User');
+    }
+
+
+}
