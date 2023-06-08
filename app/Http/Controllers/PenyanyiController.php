@@ -11,6 +11,10 @@ class PenyanyiController extends Controller
     public function index()
     {
         $Penyanyi = Penyanyi::with(['Label'])->get();
-        return view('penyanyi',['listPenyanyi' => $Penyanyi]);
+        return view('Penyanyi',['listPenyanyi' => $Penyanyi]);
+        
+        $dtLabel = Label::with('penyanyi_id')->paginate(solo);
+        return view('Label.Data-label',compact(dtLabel));
+
     }
 }
