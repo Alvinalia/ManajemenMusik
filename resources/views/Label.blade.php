@@ -8,7 +8,9 @@
             <th>id </th>
             <th>nama </th>
             <th>alamat</th>
-            <th>id penyanyi</th>
+            <th>id_penyanyi</th>
+            <th>id_musik</th>
+            <th>Penyanyi</th>
         </tr>
     </thead>
     <tbody>
@@ -19,6 +21,7 @@
             <td>{{$data->nama}}</td>
             <td>{{$data->alamat}}</td>
             <td>{{$data->penyanyi_id}}</td>
+            <td>{{$data->id}}</td>
     
         </tr>
         @endforeach
