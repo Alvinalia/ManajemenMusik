@@ -7,6 +7,7 @@
             <th>No. </th>
             <th>id</th>
             <th>nama</th>
+            <th>Genre Musik</th>
         </tr>
     </thead>
     <tbody>
@@ -15,6 +16,7 @@
             <td>{{$loop->iteration}}</td>
             <td>{{$data->id}}</td>
             <td>{{$data->nama}}</td>
+            <td>{{$data->id}}</td>
 
     
         </tr>
