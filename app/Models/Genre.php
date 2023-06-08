@@ -10,4 +10,8 @@ class Genre extends Model
     use HasFactory;
 
     protected $table = "genre";
+    
+    public function genre_musik(){
+        return $this->hasMany(GereMusik::class, "id", "id_genre");
+    }
 }
