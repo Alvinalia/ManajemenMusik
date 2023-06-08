@@ -10,7 +10,10 @@ class GenreController extends Controller
     public function index()
     {
         $Genre = Genre::all();
-        return view('Genre',['listGenre' => $Genre]);
+        return view('genre',['listGenre' => $Genre]);
+
+        $GenreMusik = GenreMusik::with(['genre'])->get();
+        return view('GenreMusik',['listGenreMusik' => $GenreMusik]);
     }
 
 }
