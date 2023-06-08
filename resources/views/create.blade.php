@@ -2,7 +2,17 @@
 
 <h1>Tambah Data</h1>
 
+@if($errors->any())
+    <div class="alert-danger">
+        Perbaiki Kesalahan Berikut Sebelum Melanjutkan
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+</div>
 
+@endif
 
 <div class="mt-5 ml-5 col-5">
     <form action="User" method="POST">
